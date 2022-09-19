@@ -19,7 +19,7 @@ const CountryCards = ({
 }) => {
   const baseURL = "https://restcountries.com/v3.1";
 
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     search
       ? `${baseURL}/name/${search}?fields=name,population,region,capital,flags,subregion,languages,currencies,tld,borders`
       : region

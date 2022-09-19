@@ -1,7 +1,6 @@
 import { React, useEffect, useState, Suspense } from "react";
 import { useParams } from "react-router-dom";
 
-import { fetchCountriesByName } from "../api";
 import CountryDetails from "../components/CountryDetails";
 import CountryDetailsPlaceholder from "../components/Placeholders/CountryDetailsPlaceholder";
 
