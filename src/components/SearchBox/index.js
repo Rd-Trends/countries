@@ -7,7 +7,7 @@ import S from "./Searchbox.module.css";
 const Search = ({ name, onSearchChange }) => {
   return (
     <form className={S.search_box_wrapper}>
-      <button>
+      <button aria-label="Search">
         <AiOutlineSearch />
       </button>
       <input

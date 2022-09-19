@@ -6,7 +6,8 @@
 
 .wrapper {
   align-items: center;
-  height: 70vh;
+  justify-content: center;
+  height: calc(100vh - 20rem);
   gap: 2rem;
   padding: 1rem;
 }

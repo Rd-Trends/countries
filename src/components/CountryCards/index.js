@@ -53,7 +53,7 @@ const CountryCards = ({
   return (
     <>
       {currentCountries.length &&
-        currentCountries.map((country) => {
+        currentCountries.map((country, index) => {
           const { name, flags, population, region, capital } = country;
 
           return (
@@ -63,7 +63,7 @@ const CountryCards = ({
                   <img
                     src={flags.svg}
                     alt={`${name.common}'s flag`}
-                    loading="lazy"
+                    loading={index > 4 ? "lazy" : "eager"}
                   />
                   <div>
                     <h3>{name.official}</h3>
