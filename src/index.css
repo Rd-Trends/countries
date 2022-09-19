@@ -1,0 +1,60 @@
+:root {
+  --body-bg: hsl(0, 0%, 98%);
+  --element-bg: hsl(0, 0%, 100%);
+  --text-color: hsl(200, 15%, 8%);
+  --input-bg: hsl(0, 0%, 52%);
+  --box-shadow: 0px 0px 5px 2px hsla(0, 2%, 79%, 0.5);
+  --text-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+  --active-link: hsl(209, 23%, 22%);
+  --active-link-color: hsl(0, 0%, 100%);
+  --shimmer-bg-img: linear-gradient(
+    to right,
+    hsl(0, 0%, 95%) 0%,
+    hsl(0, 0%, 99%) 20%,
+    hsl(0, 0%, 95%) 40%,
+    hsl(0, 0%, 95%) 100%
+  );
+  --shimmer-bg: hsl(0, 0%, 95%);
+}
+
+[data-theme="dark"] {
+  --body-bg: hsl(207, 26%, 17%);
+  --element-bg: hsl(209, 23%, 22%);
+  --text-color: hsl(0, 0%, 100%);
+  --box-shadow: 0px 0px 5px 2px hsla(209, 38%, 11%, 0.5);
+  --text-shadow: 0 20px 15px rgba(125, 125, 125, 0.5);
+  --active-link: hsl(0, 0%, 100%);
+  --active-link-color: hsl(200, 15%, 8%);
+  --shimmer-bg-img: linear-gradient(
+    to right,
+    hsl(212, 23%, 22%) 0%,
+    hsl(212, 23%, 29%) 20%,
+    hsl(212, 23%, 22%) 40%,
+    hsl(212, 23%, 22%) 100%
+  );
+  --shimmer-bg: hsl(212, 23%, 19%) ;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+button {
+  outline: none;
+  background-color: transparent;
+  color: var(--text-color);
+  border: none;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  color: var(--text-color);
+  text-decoration: none;
+}

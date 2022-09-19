@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--element-bg);
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-weight: bold;
+  color: var(--text-color);
+  user-select: none;
+}
+
+.theme_toggler {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.theme_toggler span {
+  font-size: 16px;
+  padding-left: 0.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .navbar {
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .navbar {
+    padding: 1rem 5rem;
+  }
+}

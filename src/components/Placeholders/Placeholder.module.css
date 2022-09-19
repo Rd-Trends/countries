@@ -1,0 +1,46 @@
+.rect {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+.rect__text {
+  height: 10px;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.shimmer {
+  background: var(--shimmer-bg);
+  background-image: var(--shimmer-bg-img);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: shimmer 1s infinite forwards ease-in-out;
+}
+
+.card {
+  background-color: var(--element-bg);
+  /* width: 250px;
+  max-width: 100% !important; */
+  /* margin: 2rem auto; */
+  border-radius: 10px;
+}
+
+.card > *:first-child {
+  margin-bottom: 1rem;
+}
+
+.card > *:not(:first-child) {
+  margin: 1rem;
+  width: calc(100% - 2rem);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}

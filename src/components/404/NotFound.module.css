@@ -1,0 +1,46 @@
+.wrapper {
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 10rem);
+  padding: 1rem;
+}
+
+.wrapper span {
+  font-size: 10rem;
+  text-shadow: 0 1px 0 var(--element-bg), 0 2px 0 var(--element-bg),
+    0 3px 0 var(--element-bg), 0 4px 0 var(--element-bg),
+    0 5px 0 var(--element-bg), 0 6px 0 var(--element-bg),
+    0 7px 0 var(--element-bg), 0 8px 0 var(--element-bg),
+    0 9px 0 var(--element-bg), 0 10px 0 var(--element-bg),
+    0 10px 0 var(--element-bg), 0 11px 0 var(--element-bg),
+    0 12px 0 var(--element-bg), 0 12px 0 var(--element-bg),
+    0 13px 0 var(--element-bg), 0 13px 0 var(--element-bg),
+    0 14px 0 var(--element-bg), 0 14px 0 var(--element-bg), var(--text-shadow);
+}
+
+.wrapper p {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.wrapper small {
+  font-size: 1.2rem;
+  text-align: center;
+  /* padding-top: 0.5rem; */
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper span {
+    font-size: 14rem;
+    letter-spacing: 1rem;
+  }
+
+  .wrapper p {
+    font-size: 4rem;
+    margin-top: -1rem;
+  }
+}

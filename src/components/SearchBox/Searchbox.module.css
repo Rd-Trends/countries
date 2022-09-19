@@ -1,0 +1,23 @@
+.search_box_wrapper {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--element-bg);
+  max-width: 90vw;
+  width: 400px;
+  border-radius: 5px;
+}
+
+.search_box_wrapper input,
+.search_box_wrapper button,
+.search_box_wrapper input::placeholder {
+  color: var(--text-color);
+}
+
+.search_box_wrapper input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 1rem;
+  width: 100%;
+}
