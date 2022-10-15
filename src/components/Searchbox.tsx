@@ -1,6 +1,7 @@
-import React, { memo } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
-import { styles } from "../style";
+import React, { memo } from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
+
+import { styles } from '../style';
 
 interface props {
   name: string;
@@ -12,10 +13,7 @@ const Search = ({ name, onSearchChange }: props) => {
     <form
       className={`flex items-center w-[400px] max-w-[100%] rounded shadow-lg ${styles.elementBg} ${styles.elementTextColor} ${styles.boxShadow} `}
     >
-      <button
-        aria-label="Search"
-        className=" bg-transparent outline-none p-4 pl-4"
-      >
+      <button aria-label="Search" className=" bg-transparent outline-none p-4 pl-4">
         <AiOutlineSearch />
       </button>
       <input

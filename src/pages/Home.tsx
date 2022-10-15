@@ -1,24 +1,22 @@
-import { useEffect, useState, Suspense } from "react";
-import { useSearchParams } from "react-router-dom";
-import Searchbox from "../components/Searchbox";
-import Filterregion from "../components/Filterregion";
-import { styles } from "../style";
-import Pagination from "../components/Pagination";
+import { Suspense, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-import CountryCards from "../components/CountryCards";
-import CardPlaceHolder from "../components/CardPlaceHolder";
-import { countryDetails } from "../interfaces";
+import CardPlaceHolder from '../components/CardPlaceHolder';
+import CountryCards from '../components/CountryCards';
+import Filterregion from '../components/Filterregion';
+import Pagination from '../components/Pagination';
+import Searchbox from '../components/Searchbox';
+import { countryDetails } from '../interfaces';
+import { styles } from '../style';
 
 const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [allCountries, setAllCountries] = useState<countryDetails[]>([]);
-  const [currentCountries, setCurrentCountries] = useState<countryDetails[]>(
-    []
-  );
-  let initialPage = searchParams.get("page") ?? "1";
-  let initialSarchValue = searchParams.get("search") ?? "";
-  let initialRegionValue = searchParams.get("region") ?? "";
-  let itemsPerPage = 12;
+  const [currentCountries, setCurrentCountries] = useState<countryDetails[]>([]);
+  const initialPage = searchParams.get('page') ?? '1';
+  const initialSarchValue = searchParams.get('search') ?? '';
+  const initialRegionValue = searchParams.get('region') ?? '';
+  const itemsPerPage = 12;
   const [search, setSearch] = useState<string>(initialSarchValue);
   const [page, setPage] = useState<string>(initialPage);
   const [region, setRegion] = useState<string>(initialRegionValue);
@@ -26,8 +24,7 @@ const Home = () => {
 
   useEffect(() => {
     if (allCountries && page) {
-      const newOffset =
-        ((Number(page) - 1) * itemsPerPage) % allCountries.length;
+      const newOffset = ((Number(page) - 1) * itemsPerPage) % allCountries.length;
       setItemOffset(newOffset);
       search
         ? setSearchParams({ search, page: page })
@@ -39,12 +36,12 @@ const Home = () => {
 
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-    setPage("1");
+    setPage('1');
   };
 
   const onRegionChange = (region: string): void => {
     setRegion(region);
-    setPage("1");
+    setPage('1');
   };
 
   return (

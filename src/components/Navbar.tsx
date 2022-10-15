@@ -1,6 +1,7 @@
-import React from "react";
-import { BsMoon, BsSun } from "react-icons/bs";
-import { styles } from "../style";
+import React from 'react';
+import { BsMoon, BsSun } from 'react-icons/bs';
+
+import { styles } from '../style';
 
 interface props {
   theme: string;
@@ -17,10 +18,8 @@ const Navbar = ({ theme, switchTheme }: props) => {
         onClick={switchTheme}
         className="flex items-center outline-none bg-transparent font-light"
       >
-        {theme === "light" ? <BsMoon /> : <BsSun />}
-        <span className=" ml-2">
-          {theme === "light" ? "Dark mode" : "light mode"}
-        </span>
+        {theme === 'light' ? <BsMoon /> : <BsSun />}
+        <span className=" ml-2">{theme === 'light' ? 'Dark mode' : 'light mode'}</span>
       </button>
     </nav>
   );

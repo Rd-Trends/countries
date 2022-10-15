@@ -1,5 +1,6 @@
-import React from "react";
-import { styles } from "../style";
+import React from 'react';
+
+import { styles } from '../style';
 
 const CountryDetailsPlaceholder = () => {
   return (

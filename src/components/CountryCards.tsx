@@ -1,11 +1,11 @@
-import React, { memo, useEffect } from "react";
-import useSWR from "swr";
-import { fetcher } from "../utils/fetcher";
-import { Link } from "react-router-dom";
-import { styles } from "../style";
+import React, { memo, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import useSWR from 'swr';
 
-import { countryDetails } from "../interfaces";
-import { sortAlphabetically } from "../utils/SortAlphabetically";
+import { countryDetails } from '../interfaces';
+import { styles } from '../style';
+import { fetcher } from '../utils/fetcher';
+import { sortAlphabetically } from '../utils/SortAlphabetically';
 
 interface countryCardsProps {
   search: string;
@@ -28,7 +28,7 @@ const CountryCards = ({
   itemsPerPage,
   itemOffset,
 }: countryCardsProps) => {
-  const baseURL = "https://restcountries.com/v3.1";
+  const baseURL = 'https://restcountries.com/v3.1';
 
   const { data } = useSWR<countryDetails[]>(
     search
@@ -37,7 +37,7 @@ const CountryCards = ({
       ? `${baseURL}/region/${region}?fields=name,population,region,capital,flags`
       : `${baseURL}/all?fields=name,population,region,capital,flags`,
     fetcher,
-    { suspense: true }
+    { suspense: true },
   );
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const CountryCards = ({
       setCurrentCountries(allCountries.slice(itemOffset, endOffset));
   }, [itemOffset, allCountries, itemsPerPage, setCurrentCountries]);
 
-  if (data?.constructor.name === "Object") {
+  if (data?.constructor.name === 'Object') {
     return (
       <p className="text-center text-xl text-[#ff0033]">
         No country found, please try searching with another term
@@ -78,24 +78,20 @@ const CountryCards = ({
                     <img
                       src={flags.svg}
                       alt={`${name.common}'s flag`}
-                      loading={index > 4 ? "lazy" : "eager"}
+                      loading={index > 4 ? 'lazy' : 'eager'}
                       className=" w-full rounded-t-md h-44 object-cover object-center group-hover:scale-[1.2] transition duration-300 ease-in-out"
                     />
                     <div className=" p-4">
-                      <h3 className=" font-bold text-lg my-4">
-                        {name.official}
-                      </h3>
+                      <h3 className=" font-bold text-lg my-4">{name.official}</h3>
                       <p className=" text-sm mb-2">
-                        <strong className=" font-semibold">Population:</strong>{" "}
+                        <strong className=" font-semibold">Population:</strong>{' '}
                         {population.toLocaleString()}
                       </p>
                       <p className=" text-sm mb-2">
-                        <strong className=" font-semibold">Region:</strong>{" "}
-                        {region}
+                        <strong className=" font-semibold">Region:</strong> {region}
                       </p>
                       <p className=" text-sm mb-2">
-                        <strong className=" font-semibold">Capital:</strong>{" "}
-                        {capital}
+                        <strong className=" font-semibold">Capital:</strong> {capital}
                       </p>
                     </div>
                   </>
@@ -103,7 +99,7 @@ const CountryCards = ({
               </article>
             );
           })
-        : ""}
+        : ''}
     </div>
   );
 };

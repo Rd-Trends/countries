@@ -1,14 +1,15 @@
-import React, { useState, useRef, useEffect, ReactText } from "react";
-import { BiChevronDown } from "react-icons/bi";
-import { AiOutlineClose } from "react-icons/ai";
-import { styles } from "../style";
+import React, { ReactText, useEffect, useRef, useState } from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
+import { BiChevronDown } from 'react-icons/bi';
+
+import { styles } from '../style';
 
 const regions = [
-  { name: "africa", id: 1 },
-  { name: "america", id: 2 },
-  { name: "asia", id: 3 },
-  { name: "europe", id: 4 },
-  { name: "oceania", id: 5 },
+  { name: 'africa', id: 1 },
+  { name: 'america', id: 2 },
+  { name: 'asia', id: 3 },
+  { name: 'europe', id: 4 },
+  { name: 'oceania', id: 5 },
 ];
 
 interface props {
@@ -30,9 +31,9 @@ const Filterregion = ({ onRegionChange }: props) => {
   const handleOptionKeyDown =
     (index: number) => (e: React.KeyboardEvent<HTMLLIElement>) => {
       switch (e.key) {
-        case " ":
-        case "SpaceBar":
-        case "Enter":
+        case ' ':
+        case 'SpaceBar':
+        case 'Enter':
           e.preventDefault();
           setFilterRegion(index);
           break;
@@ -65,12 +66,15 @@ const Filterregion = ({ onRegionChange }: props) => {
         onClick={() => {
           if (!showOptions) setShowOptions(true);
         }}
+        onKeyDown={() => {
+          if (!showOptions) setShowOptions(true);
+        }}
         tabIndex={0}
       >
         <span>
           {selectedOption
             ? `${getSelectedRegion(selectedOption)?.name}`
-            : "filter by region"}
+            : 'filter by region'}
         </span>
 
         <div className="flex items-center">
@@ -78,13 +82,13 @@ const Filterregion = ({ onRegionChange }: props) => {
             <button
               onClick={() => {
                 setSelectedOption(null);
-                onRegionChange("");
+                onRegionChange('');
               }}
             >
               <AiOutlineClose size={15} />
             </button>
           ) : (
-            ""
+            ''
           )}
           <button
             className=" bg-transparent outline-none "
@@ -94,7 +98,7 @@ const Filterregion = ({ onRegionChange }: props) => {
             <BiChevronDown
               size={30}
               className={`transition duration-300 ${
-                showOptions ? "rotate-180" : "rotate-0"
+                showOptions ? 'rotate-180' : 'rotate-0'
               }`}
             />
           </button>
@@ -105,14 +109,14 @@ const Filterregion = ({ onRegionChange }: props) => {
         className={`${styles.elementBg} ${styles.elementTextColor} shadow-md ${
           styles.boxShadow
         } ${
-          showOptions ? "" : "hidden"
+          showOptions ? '' : 'hidden'
         } rounded-lg py-2 mt-2 font-light z-10 absolute w-full`}
         id="listbox"
         role="listbox"
         tabIndex={-1}
         aria-label="Filter region"
         aria-activedescendant={
-          selectedOption ? regions[selectedOption - 1].id.toString() : ""
+          selectedOption ? regions[selectedOption - 1].id.toString() : ''
         }
       >
         {regions.map((region) => (
@@ -121,7 +125,7 @@ const Filterregion = ({ onRegionChange }: props) => {
             aria-selected={selectedOption === region.id}
             tabIndex={0}
             className={`py-2 px-4 cursor-pointer ${
-              selectedOption === region.id ? "font-bold" : ""
+              selectedOption === region.id ? 'font-bold' : ''
             }`}
             onClick={() => setFilterRegion(region.id)}
             onKeyDown={handleOptionKeyDown(region.id)}

@@ -1,5 +1,6 @@
-import React from "react";
-import { styles } from "../style";
+import React from 'react';
+
+import { styles } from '../style';
 
 interface btnProps {
   tag?: React.ElementType;
@@ -8,7 +9,7 @@ interface btnProps {
 }
 
 const Button = ({ tag, children, ...attributes }: btnProps) => {
-  const Tag = tag ? tag : "button";
+  const Tag = tag ? tag : 'button';
   return (
     <Tag
       className={`${styles.elementBg} ${styles.elementTextColor} ${styles.boxShadow} shadow-lg px-4 py-[0.35rem] text-sm cursor-pointer inline-block text-center rounded-md hover:scale-110`}

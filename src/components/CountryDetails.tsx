@@ -1,50 +1,44 @@
-import { useEffect, useState } from "react";
-import { Link, To, useNavigate } from "react-router-dom";
-import useSWR from "swr";
-import { fetcher } from "../utils/fetcher";
+import { useEffect, useState } from 'react';
+import { IoIosArrowRoundBack } from 'react-icons/io';
+import { Link, To, useNavigate } from 'react-router-dom';
+import useSWR from 'swr';
 
+import { countryDetailsComplete, countryName } from '../interfaces';
+import { styles } from '../style';
+import { fetcher } from '../utils/fetcher';
 // import { fetchBorderCountriesByAlphaCode } from "../../api";
-import { getValuesFromNestedObjects } from "../utils/getValuesFromNestedObjects";
-import Button from "./Button";
-import { IoIosArrowRoundBack } from "react-icons/io";
-
-import { styles } from "../style";
-
-import { countryDetailsComplete, countryName } from "../interfaces";
+import { getValuesFromNestedObjects } from '../utils/getValuesFromNestedObjects';
+import Button from './Button';
 
 export const fetchBorderCountriesByAlphaCode = async (
-  borders: string[]
+  borders: string[],
 ): Promise<{ name: countryName }[]> => {
   try {
     const borderCountries = await Promise.all(
       borders.map(async (border) => {
         const response = await fetch(
-          `https://restcountries.com/v3.1/alpha/${border}?fields=name`
+          `https://restcountries.com/v3.1/alpha/${border}?fields=name`,
         );
         return await response.json();
-      })
+      }),
     );
     return borderCountries;
   } catch (e) {
-    throw new Error("unable to fetch country by code");
+    throw new Error('unable to fetch country by code');
   }
 };
 
 const CountryDetails = ({ country }: { country: string }) => {
   const navigate = useNavigate();
-  const [countryData, setCountryData] = useState<countryDetailsComplete | null>(
-    null
-  );
+  const [countryData, setCountryData] = useState<countryDetailsComplete | null>(null);
   const [borders, setBorders] = useState<string[]>([]);
-  const [borderCountries, setBorderCountries] = useState<
-    { name: countryName }[]
-  >([]);
+  const [borderCountries, setBorderCountries] = useState<{ name: countryName }[]>([]);
   const { data } = useSWR<countryDetailsComplete[]>(
     country
       ? `https://restcountries.com/v3.1/name/${country}?fields=name,population,region,capital,flags,subregion,languages,currencies,tld,borders`
       : null,
     fetcher,
-    { suspense: true }
+    { suspense: true },
   );
 
   useEffect(() => {
@@ -72,9 +66,7 @@ const CountryDetails = ({ country }: { country: string }) => {
   };
 
   return (
-    <section
-      className={`${styles.paddingX} py-10 ${styles.elementTextColor} pb-[8rem]`}
-    >
+    <section className={`${styles.paddingX} py-10 ${styles.elementTextColor} pb-[8rem]`}>
       <Button onClick={navigateBackwards}>
         <IoIosArrowRoundBack className=" inline" />
         <span className="mx-2">back</span>
@@ -88,14 +80,11 @@ const CountryDetails = ({ country }: { country: string }) => {
           alt={`${countryData?.name?.common}'s flag`}
         />
         <div className="w-full md:w-9/12">
-          <h1 className=" text-2xl font-semibold mb-8">
-            {countryData?.name?.common}
-          </h1>
+          <h1 className=" text-2xl font-semibold mb-8">{countryData?.name?.common}</h1>
           <div className={`flex flex-col md:flex-row  justify-between `}>
             <div className={`[&>p]:mb-2 mr-4`}>
               <p>
-                <strong className="mr-2">Native Name:</strong>{" "}
-                {countryData?.name?.common}
+                <strong className="mr-2">Native Name:</strong> {countryData?.name?.common}
               </p>
               {countryData?.population && (
                 <p>
@@ -116,7 +105,7 @@ const CountryDetails = ({ country }: { country: string }) => {
               {countryData?.capital && (
                 <p>
                   <strong className="mr-2">Capital:</strong>
-                  {countryData?.capital.toString().split(",")}
+                  {countryData?.capital.toString().split(',')}
                 </p>
               )}
             </div>
@@ -124,27 +113,23 @@ const CountryDetails = ({ country }: { country: string }) => {
               {countryData?.tld && (
                 <p>
                   <strong className="mr-2">Top Level Domain:</strong>
-                  {countryData?.tld.toString().split(" ")}
+                  {countryData?.tld.toString().split(' ')}
                 </p>
               )}
               {countryData?.currencies && (
                 <p>
                   <strong className="mr-2">Currencies:</strong>
-                  {getValuesFromNestedObjects(countryData?.currencies).map(
-                    (currency) => (
-                      <span key={currency}>{currency}</span>
-                    )
-                  )}
+                  {getValuesFromNestedObjects(countryData?.currencies).map((currency) => (
+                    <span key={currency}>{currency}</span>
+                  ))}
                 </p>
               )}
               {countryData?.languages && (
                 <p>
                   <strong className="mr-2">Languages:</strong>
-                  {getValuesFromNestedObjects(countryData?.languages).map(
-                    (language) => (
-                      <span key={language}>{language}</span>
-                    )
-                  )}
+                  {getValuesFromNestedObjects(countryData?.languages).map((language) => (
+                    <span key={language}>{language}</span>
+                  ))}
                 </p>
               )}
             </div>

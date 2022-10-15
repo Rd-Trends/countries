@@ -10,8 +10,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%; */
-  transition: linear, background-color 0.3s linear,
-    border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: linear, background-color 0.3s linear, border-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
 }
 
 @tailwind base;

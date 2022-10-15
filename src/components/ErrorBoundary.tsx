@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import { styles } from "../style";
+import React, { Component } from 'react';
+
+import { styles } from '../style';
 
 interface props {
   children: React.ReactNode;
