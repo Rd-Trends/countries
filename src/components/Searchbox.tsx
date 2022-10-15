@@ -14,14 +14,14 @@ const Search = ({ name, onSearchChange }: props) => {
     >
       <button
         aria-label="Search"
-        className=" bg-transparent outline-none py-4 pl-4"
+        className=" bg-transparent outline-none p-4 pl-4"
       >
         <AiOutlineSearch />
       </button>
       <input
         type="search"
         placeholder="Search for a country..."
-        className="bg-transparent outline-none p-4"
+        className="bg-transparent outline-none py-4 pr-4"
         value={name}
         onChange={onSearchChange}
       />
